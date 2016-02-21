@@ -39,9 +39,9 @@ if !exists("syntax_on")
 endif
 
 " Macros
-nnoremap <C-J> o <esc>
-nnoremap <C-K> O <esc>
-
+nnoremap <C-J> mo o <esc> `o
+nnoremap <C-K> mo O <esc> `o
+ 
 " Colors
 colorscheme my_theme
  
