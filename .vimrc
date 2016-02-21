@@ -33,6 +33,9 @@ filetype plugin indent on
 " Make command line two lines high
 set ch=2
 
+" Syntax highlighting
+set syn
+
 " Macros
 nnoremap <C-J> o <esc>
 nnoremap <C-K> O <esc>
