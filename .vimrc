@@ -50,6 +50,7 @@ if has("gui_running")
     set mousehide " Hide mouse when typing
     set cursorline " Highlight currentline
     set guioptions-=L " Remove left scroll bar
+    set guioptions-=T
     colors my_jellybeans " Theme
     set guifont=Consolas:h10
 endif
