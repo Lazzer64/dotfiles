@@ -34,7 +34,9 @@ filetype plugin indent on
 set ch=2
 
 " Syntax highlighting
-set syn
+if !exists("syntax_on")
+    syntax on
+endif
 
 " Macros
 nnoremap <C-J> o <esc>
