@@ -51,6 +51,7 @@ if has("gui_running")
     set cursorline " Highlight currentline
     set guioptions-=L " Remove left scroll bar
     colors my_jellybeans " Theme
+    set guifont=Consolas:h10
 endif
 
 " Save backups to backup folder
