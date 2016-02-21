@@ -1,11 +1,22 @@
 set nocompatible
-source $VIMRUNTIME/mswin.vim
-behave mswin
+filetype off
+
+if has('win32')
+    source $VIMRUNTIME/mswin.vim
+    behave mswin
+    set backupdir=$VIM/backups
+else
+    set backupdir=~/.vim/backups
+endif
 
 " Vundle
-filetype off
-set rtp+=$VIM/vimfiles/bundle/Vundle.vim
-call vundle#begin('$VIM/vimFiles/bundle')
+if has('win32')
+    set rtp+=$VIM/vimfiles/bundle/Vundle.vim
+    call vundle#begin('$VIM/vimFiles/bundle')
+else
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
+endif
 
 " Plugins
 Plugin 'VundleVim/Vundle.vim'
@@ -23,8 +34,8 @@ filetype plugin indent on
 set ch=2
 
 " Macros
-:nnoremap <C-J> o <esc>
-:nnoremap <C-K> O <esc>
+nnoremap <C-J> o <esc>
+nnoremap <C-K> O <esc>
 
 " Colors
 colorscheme my_theme
@@ -35,11 +46,9 @@ if has("gui_running")
     set cursorline " Highlight currentline
     set guioptions-=L " Remove left scroll bar
     colors my_jellybeans " Theme
-
 endif
 
 " Save backups to backup folder
-set backupdir=$VIM/backups
 
 " Turn on the WiLd menu
 set wildmenu
