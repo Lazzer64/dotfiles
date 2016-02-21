@@ -1,3 +1,5 @@
-*
-!.gitignore
-!.vimrc
+backups
+vim74
+bundle
+*.swp
+.netrwhist
