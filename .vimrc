@@ -25,7 +25,6 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
-" Plugin 'scrooloose/syntastic'
 
 call vundle#end()
 filetype plugin indent on
@@ -39,7 +38,7 @@ if !exists("syntax_on")
 endif
 
 " Macros
-nnoremap <C-J> mo o <esc> `o
+nnoremap <C-J> mo o <esc> `o 
 nnoremap <C-K> mo O <esc> `o
  
 " Colors
@@ -50,12 +49,10 @@ if has("gui_running")
     set mousehide " Hide mouse when typing
     set cursorline " Highlight currentline
     set guioptions-=L " Remove left scroll bar
-    set guioptions-=T
+    set guioptions-=T " Remove toolbar
     colors my_jellybeans " Theme
-    set guifont=Consolas:h10
+    set guifont=Consolas:h10 " Font
 endif
-
-" Save backups to backup folder
 
 " Turn on the WiLd menu
 set wildmenu
@@ -67,9 +64,6 @@ set relativenumber
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
-
-" Auto indent
-set ai 
  
 " Tab options
 set expandtab
