@@ -25,6 +25,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
+Plugin 'ervandew/supertab'
 
 call vundle#end()
 filetype plugin indent on
