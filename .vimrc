@@ -3,6 +3,7 @@ filetype off
 
 if has('win32')
     source $VIMRUNTIME/mswin.vim
+    :unmap <C-a>
     behave mswin
     set backupdir=$VIM/backups
 else
