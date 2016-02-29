@@ -3,22 +3,16 @@ filetype off
 
 if has('win32')
     source $VIMRUNTIME/mswin.vim
+    set rtp+=~/.vim
     :unmap <C-a>
     behave mswin
-    set backupdir=$VIM/backups
-else
-    set backupdir=~/.vim/backups
 endif
+
+set backupdir=~/.vim/backups
 
 " Vundle
-if has('win32')
-    set rtp+=$VIM/vimfiles/bundle/Vundle.vim
-    call vundle#begin('$VIM/vimFiles/bundle')
-else
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
-endif
-
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 " Plugins
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
