@@ -21,10 +21,15 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
 Plugin 'ervandew/supertab'
+Plugin 'itchyny/lightline.vim'
 
 call vundle#end()
 filetype plugin indent on
 
+" Lightline
+set laststatus=2 " always show statusline
+let g:lightline = { 'colorscheme': 'jellybeans' }
+ 
 " Make command line two lines high
 set ch=2
 
