@@ -24,8 +24,9 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'garbas/vim-snipmate'
 " Dependencies
-Plugin 'tomtom/tlib_vim'
-Plugin 'honza/vim-snippets'
+Plugin 'tomtom/tlib_vim' " Vim-snipmate dependency
+Plugin 'honza/vim-snippets' " Vim-snipmate dependency
+
 
 call vundle#end()
 filetype plugin indent on
