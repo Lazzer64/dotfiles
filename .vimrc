@@ -20,8 +20,12 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
-Plugin 'ervandew/supertab'
 Plugin 'itchyny/lightline.vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'garbas/vim-snipmate'
+" Dependencies
+Plugin 'tomtom/tlib_vim'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 filetype plugin indent on
