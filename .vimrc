@@ -21,16 +21,19 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
 Plugin 'itchyny/lightline.vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'garbas/vim-snipmate'
-" Dependencies
-Plugin 'tomtom/tlib_vim' " Vim-snipmate dependency
-Plugin 'honza/vim-snippets' " Vim-snipmate dependency
+Plugin 'SirVer/ultisnips'
+" Plugin Dependencies
+Plugin 'honza/vim-snippets' " Utlisnips dependency
 
 
 call vundle#end()
 filetype plugin indent on
 
+" Ultisnips options
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"
 " Lightline
 set laststatus=2 " always show statusline
 let g:lightline = { 'colorscheme': 'jellybeans' }
