@@ -22,6 +22,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
 Plugin 'itchyny/lightline.vim'
 Plugin 'SirVer/ultisnips'
+Plugin 'terryma/vim-multiple-cursors'
 " Plugin Dependencies
 Plugin 'honza/vim-snippets' " Utlisnips dependency
 
