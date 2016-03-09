@@ -60,6 +60,7 @@ if has("gui_running")
     set cursorline " Highlight currentline
     set guioptions-=L " Remove left scroll bar
     set guioptions-=T " Remove toolbar
+    set guioptions-=m " Remove menubar
     colors my_jellybeans " Theme
     set guifont=Consolas:h10 " Font
 endif
