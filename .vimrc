@@ -26,7 +26,6 @@ Plugin 'terryma/vim-multiple-cursors'
 " Plugin Dependencies
 Plugin 'honza/vim-snippets' " Utlisnips dependency
 
-
 call vundle#end()
 filetype plugin indent on
 
@@ -48,8 +47,9 @@ if !exists("syntax_on")
 endif
 
 " Macros
-nnoremap <C-J> mo o <esc> `o 
-nnoremap <C-K> mo O <esc> `o
+nnoremap <C-J> moo<esc>`o 
+nnoremap <C-K> moO<esc>`o
+vnoremap <C-A> <esc>ggVG
  
 " Colors
 colorscheme my_theme
