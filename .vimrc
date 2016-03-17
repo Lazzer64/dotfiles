@@ -52,7 +52,7 @@ nnoremap <C-K> moO<esc>`o
 vnoremap <C-A> <esc>ggVG
  
 " Colors
-colorscheme my_theme
+colorscheme lazz
  
 " Gui options
 if has("gui_running")
@@ -61,7 +61,6 @@ if has("gui_running")
     set guioptions-=L " Remove left scroll bar
     set guioptions-=T " Remove toolbar
     set guioptions-=m " Remove menubar
-    colors my_jellybeans " Theme
     set guifont=Consolas:h10 " Font
 endif
 

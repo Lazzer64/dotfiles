@@ -1,27 +1,3 @@
-" Vim color file
-"
-"  "    __       _ _       _                             "
-"  "    \ \  ___| | |_   _| |__   ___  __ _ _ __  ___    "
-"  "     \ \/ _ \ | | | | |  _ \ / _ \/ _  |  _ \/ __|   "
-"  "  /\_/ /  __/ | | |_| | |_| |  __/ |_| | | | \__ \   "
-"  "  \___/ \___|_|_|\__  |____/ \___|\____|_| |_|___/   "
-"  "                 \___/                               "
-"
-"         "A colorful, dark color scheme for Vim."
-"
-" File:         jellybeans.vim
-" URL:          github.com/nanotech/jellybeans.vim
-" Scripts URL:  vim.org/scripts/script.php?script_id=2555
-" Maintainer:   NanoTech (nanotech.nanotechcorp.net)
-" Version:      1.6~git
-" Last Change:  January 15th, 2012
-" License:      MIT
-" Contributors: Daniel Herbert (pocketninja)
-"               Henry So, Jr. <henryso@panix.com>
-"               David Liang <bmdavll at gmail dot com>
-"               Rich Healey (richo)
-"               Andrew Wong (w0ng)
-"
 " Copyright (c) 2009-2012 NanoTech
 "
 " Permission is hereby granted, free of charge, to any per‐
@@ -47,6 +23,8 @@
 " NECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 " THE SOFTWARE.
 
+let colors_name = "lazz"
+
 let g:jellybeans_use_lowcolor_black = 0
 
 set background=dark
@@ -56,8 +34,6 @@ hi clear
 if exists("syntax_on")
   syntax reset
 endif
-
-let colors_name = "my_jellybeans"
 
 if has("gui_running") || &t_Co == 88 || &t_Co == 256
   let s:low_color = 0
@@ -570,3 +546,45 @@ delf s:grey_color
 delf s:grey_level
 delf s:grey_number
 " }}}
+
+
+" Terminal colors
+
+hi Normal           ctermbg=Black           ctermfg=White  
+hi ErrorMsg         term=standout           ctermbg=DarkRed         ctermfg=White
+hi IncSearch        term=reverse            cterm=reverse           
+hi ModeMsg          term=bold               cterm=bold              
+hi StatusLine       term=reverse,bold       cterm=reverse,bold      
+hi StatusLineNC     term=reverse            cterm=reverse           
+hi VertSplit        term=reverse            cterm=reverse           
+hi Visual           term=reverse            ctermbg=White          ctermfg=Black
+hi VisualNOS        term=underline,bold     cterm=underline,bold    
+hi DiffText         term=reverse            cterm=bold              ctermbg=Red
+hi Directory        term=bold               ctermfg=LightCyan       
+hi LineNr           term=underline          ctermfg=DarkGrey        
+hi MoreMsg          term=bold               ctermfg=LightGreen      
+hi NonText          term=bold               ctermfg=LightBlue       
+hi Question         term=standout           ctermfg=LightGreen      
+hi Search           term=reverse            ctermbg=Yellow          ctermfg=Black
+hi SpecialKey       term=bold               ctermfg=LightBlue       
+hi Title            term=bold               ctermfg=LightMagenta    
+hi WarningMsg       term=standout           ctermfg=LightRed        
+hi WildMenu         term=standout           ctermbg=Yellow          ctermfg=Black
+hi Folded           term=standout           ctermbg=LightGrey       ctermfg=DarkBlue
+hi FoldColumn       term=standout           ctermbg=LightGrey       ctermfg=DarkBlue
+hi DiffAdd          term=bold               ctermbg=DarkBlue        
+hi DiffChange       term=bold               ctermbg=DarkMagenta     
+hi DiffDelete       term=bold               ctermfg=Blue            ctermbg=DarkCyan
+hi Column           term=reverse            ctermbg=Black           
+hi Line             term=bold               ctermbg=Black           cterm=bold
+hi PreProc          ctermfg=Cyan
+hi Comment          ctermfg=DarkGray
+hi Type             ctermfg=Red
+
+" Groups for syntax highlighting
+hi Constant term=underline ctermfg=Green  
+hi Special term=bold ctermfg=LightRed  
+if &t_Co > 8
+  hi Statement term=bold cterm=bold ctermfg=Yellow  
+endif
+hi Ignore ctermfg=DarkGrey 
