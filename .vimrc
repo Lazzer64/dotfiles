@@ -21,10 +21,12 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
 Plugin 'itchyny/lightline.vim'
-Plugin 'SirVer/ultisnips'
 Plugin 'terryma/vim-multiple-cursors'
-" Plugin Dependencies
-Plugin 'honza/vim-snippets' " Utlisnips dependency
+
+if has("python")
+    Plugin 'SirVer/ultisnips'
+    Plugin 'honza/vim-snippets' " Utlisnips dependency
+endif
 
 call vundle#end()
 filetype plugin indent on
