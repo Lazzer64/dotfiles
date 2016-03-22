@@ -26,6 +26,7 @@ Plugin 'terryma/vim-multiple-cursors'
 if has("python")
     Plugin 'SirVer/ultisnips'
     Plugin 'honza/vim-snippets' " Utlisnips dependency
+    Plugin 'sjl/gundo.vim'
 endif
 
 call vundle#end()
