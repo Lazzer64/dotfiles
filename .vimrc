@@ -36,7 +36,12 @@ filetype plugin indent on
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-"
+
+" Gundo options
+nnoremap <Leader>u :GundoToggle<CR>
+let g:gundo_preview_height=25
+let g:gundo_close_on_revert=1
+
 " Lightline
 set laststatus=2 " always show statusline
 let g:lightline = { 'colorscheme': 'jellybeans' }
