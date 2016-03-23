@@ -32,6 +32,9 @@ endif
 call vundle#end()
 filetype plugin indent on
 
+" Nerdtree option
+nnoremap <leader>e :NERDTreeToggle<CR>
+
 " Ultisnips options
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
