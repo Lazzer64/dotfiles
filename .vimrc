@@ -33,7 +33,7 @@ call vundle#end()
 filetype plugin indent on
 
 " Nerdtree option
-nnoremap <leader>e :NERDTreeToggle<CR>
+nnoremap <leader>e :NERDTreeToggle %:h<CR>
 
 " Ultisnips options
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -49,6 +49,14 @@ let g:gundo_close_on_revert=1
 set laststatus=2 " always show statusline
 let g:lightline = { 'colorscheme': 'jellybeans' }
  
+" Macros
+inoremap <C-K> <esc>O<esc>i
+inoremap <C-J> <esc>o<esc>i
+nnoremap <C-K> O<esc>
+nnoremap <C-J> o<esc>
+nnoremap K k J
+vnoremap <C-A> <esc>ggVG
+
 " Make command line two lines high
 set ch=2
 
@@ -56,11 +64,6 @@ set ch=2
 if !exists("syntax_on")
     syntax on
 endif
-
-" Macros
-nnoremap <C-J> moo<esc>`o 
-nnoremap <C-K> moO<esc>`o
-vnoremap <C-A> <esc>ggVG
  
 " Colors
 colorscheme lazz
