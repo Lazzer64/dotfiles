@@ -581,6 +581,7 @@ hi Line             term=bold               ctermbg=Black           cterm=bold
 hi PreProc          ctermfg=Cyan
 hi Comment          ctermfg=DarkGray
 hi Type             ctermfg=Red
+hi gitcommitSummary ctermfg=White
 
 " Groups for syntax highlighting
 hi Constant term=underline ctermfg=Green  
