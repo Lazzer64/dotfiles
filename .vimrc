@@ -2,10 +2,16 @@ set nocompatible
 filetype off
 
 if has('win32')
-    source $VIMRUNTIME/mswin.vim
+
     set rtp+=~/.vim
-    :unmap <C-a>
     behave mswin
+    
+    " Macros taken from mswin.vim
+    vnoremap <BS> d
+    map <C-V> "+gP
+    cmap <C-V> <C-R>+
+    noremap <C-Q> <C-V>
+
 endif
 
 set backupdir=~/.vim/backups
@@ -56,6 +62,7 @@ nnoremap <C-K> O<esc>
 nnoremap <C-J> o<esc>
 nnoremap K k J
 vnoremap <C-A> <esc>ggVG
+nnoremap z<CR> zt 3<C-Y>
 
 " Make command line two lines high
 set ch=2
@@ -72,6 +79,7 @@ colorscheme lazz
 if has("gui_running")
     set mousehide " Hide mouse when typing
     set cursorline " Highlight currentline
+    set guioptions-=a " Disable autoselect
     set guioptions-=L " Remove left scroll bar
     set guioptions-=T " Remove toolbar
     set guioptions-=m " Remove menubar
