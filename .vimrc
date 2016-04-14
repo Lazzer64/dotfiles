@@ -62,7 +62,9 @@ nnoremap <C-K> O<esc>
 nnoremap <C-J> o<esc>
 nnoremap K k J
 vnoremap <C-A> <esc>ggVG
-nnoremap z<CR> zt 3<C-Y>
+nnoremap z<CR> zt3<C-Y>
+nnoremap Y y$
+nnoremap <silent> <esc>/ :let @/ = ""<cr>
 
 " Make command line two lines high
 set ch=2
