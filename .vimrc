@@ -67,7 +67,7 @@ nnoremap K k J
 vnoremap <C-A> <esc>ggVG
 nnoremap z<CR> zt3<C-Y>
 nnoremap Y y$
-nnoremap <silent> <esc>/ :let @/ = ""<cr>
+nnoremap <silent> <esc>/ :noh <CR>
 
 " Make command line two lines high
 set ch=2
