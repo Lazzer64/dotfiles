@@ -41,6 +41,9 @@ filetype plugin indent on
 " Nerdtree option
 nnoremap <leader>e :NERDTreeToggle %:h<CR>
 
+" Multi Cursor options
+let g:multi_cursor_exit_from_insert_mode=0
+
 " Ultisnips options
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
