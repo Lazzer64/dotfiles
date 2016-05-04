@@ -38,9 +38,6 @@ endif
 call vundle#end()
 filetype plugin indent on
 
-" Nerdtree option
-nnoremap <leader>e :NERDTreeToggle %:h<CR>
-
 " Multi Cursor options
 let g:multi_cursor_exit_from_insert_mode=0
 
@@ -68,6 +65,7 @@ vnoremap <C-A> <esc>ggVG
 nnoremap z<CR> zt3<C-Y>
 nnoremap Y y$
 nnoremap <silent> <esc>/ :noh <CR>
+nnoremap <silent> <leader>e :NERDTreeToggle %:p:h<CR>
 
 " Make command line two lines high
 set ch=2
