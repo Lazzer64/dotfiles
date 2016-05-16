@@ -8,13 +8,13 @@ if has('win32')
     
     " Macros taken from mswin.vim
     vnoremap <BS> d
-    map <C-V> "+gP
+    map <C-V> "+gp
     cmap <C-V> <C-R>+
     noremap <C-Q> <C-V>
 
 endif
 
-set backupdir=~/.vim/backups
+set nobackup
 
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
