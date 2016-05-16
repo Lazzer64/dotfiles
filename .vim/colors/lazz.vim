@@ -3,7 +3,7 @@
 "
 " Permission is hereby granted, free of charge, to any per-
 " son obtaining a copy of this software and associated doc-
-" umentation  files  (the “Software”), to deal in the Soft-
+" umentation  files  (the Software), to deal in the Soft-
 " ware without restriction,  including  without  limitation
 " the rights to use, copy, modify, merge, publish, distrib-
 " ute, sublicense, and/or sell copies of the Software,  and
@@ -14,7 +14,7 @@
 " shall  be  included in all copies or substantial portions
 " of the Software.
 "
-" THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY
+" THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY
 " KIND,  EXPRESS  OR  IMPLIED, INCLUDING BUT NOT LIMITED TO
 " THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICU-
 " LAR  PURPOSE  AND  NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -25,6 +25,11 @@
 " THE SOFTWARE."
 
 let colors_name = "lazz"
+
+if &t_Co > 8
+  hi Statement term=bold cterm=bold ctermfg=Yellow  
+endif
+hi Ignore ctermfg=DarkGrey 
 
 let g:jellybeans_use_lowcolor_black = 0
 
@@ -548,46 +553,5 @@ delf s:grey_level
 delf s:grey_number
 " }}}
 
-
-" Terminal colors
-
-hi Normal               ctermbg=Black           ctermfg=White  
-hi ErrorMsg             term=standout           ctermbg=DarkRed         ctermfg=White
-hi IncSearch            term=reverse            cterm=reverse           
-hi ModeMsg              term=bold               cterm=bold              
-hi StatusLine           term=reverse,bold       cterm=reverse,bold      
-hi StatusLineNC         term=reverse            cterm=reverse           
-hi VertSplit            term=reverse            cterm=reverse           
-hi Visual               term=reverse            ctermbg=White          ctermfg=Black
-hi VisualNOS            term=underline,bold     cterm=underline,bold    
-hi DiffText             term=reverse            cterm=bold              ctermbg=Red
-hi Directory            term=bold               ctermfg=LightCyan       
-hi LineNr               term=underline          ctermfg=DarkGrey        
-hi MoreMsg              term=bold               ctermfg=LightGreen      
-hi NonText              term=bold               ctermfg=LightBlue       
-hi Question             term=standout           ctermfg=LightGreen      
-hi Search               term=reverse            ctermbg=Yellow          ctermfg=Black
-hi SpecialKey           term=bold               ctermfg=LightBlue       
-hi Title                term=bold               ctermfg=LightMagenta    
-hi WarningMsg           term=standout           ctermfg=LightRed        
-hi WildMenu             term=standout           ctermbg=Yellow          ctermfg=Black
-hi Folded               term=standout           ctermbg=LightGrey       ctermfg=DarkBlue
-hi FoldColumn           term=standout           ctermbg=LightGrey       ctermfg=DarkBlue
-hi DiffAdd              term=bold               ctermbg=DarkBlue        
-hi DiffChange           term=bold               ctermbg=DarkMagenta     
-hi DiffDelete           term=bold               ctermfg=Blue            ctermbg=DarkCyan
-hi Column               term=reverse            ctermbg=Black           
-hi Line                 term=bold               ctermbg=Black           cterm=bold
-hi PreProc              ctermfg=Cyan
-hi Comment              ctermfg=DarkGray
-hi Type                 ctermfg=Red
-hi gitcommitSummary     ctermfg=White
-hi gitcommitOverflow    ctermfg=Yellow
-
-" Groups for syntax highlighting
-hi Constant term=underline ctermfg=Green  
-hi Special term=bold ctermfg=LightRed  
-if &t_Co > 8
-  hi Statement term=bold cterm=bold ctermfg=Yellow  
-endif
-hi Ignore ctermfg=DarkGrey 
+hi Comment ctermfg=DarkGrey
+hi normal ctermfg=white
