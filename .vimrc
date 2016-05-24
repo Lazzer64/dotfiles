@@ -77,11 +77,11 @@ endif
  
 " Colors
 colorscheme lazz
+set cursorline " Highlight currentline
  
 " Gui options
 if has("gui_running")
     set mousehide " Hide mouse when typing
-    set cursorline " Highlight currentline
     set guioptions-=a " Disable autoselect
     set guioptions-=L " Remove left scroll bar
     set guioptions-=T " Remove toolbar
