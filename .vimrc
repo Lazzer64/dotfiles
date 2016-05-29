@@ -77,7 +77,9 @@ endif
  
 " Colors
 colorscheme lazz
-set cursorline " Highlight currentline
+if(&t_Co > 8)
+    set cursorline
+endif
  
 " Gui options
 if has("gui_running")
