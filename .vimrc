@@ -76,7 +76,10 @@ if !exists("syntax_on")
 endif
  
 " Colors
-colorscheme lazz
+colorscheme jellybeans
+
+let g:jellybeans_overrides = { 'Todo': { 'guifg': 'E5789F' } }
+
 if(&t_Co > 8)
     set cursorline
 endif
