@@ -6,6 +6,8 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # Soft link files
 ln -sfv "$DIR/.vim" ~
 ln -sfv "$DIR/.vimrc" ~
+ln -sfv "$DIR/.gitconfig" ~
+ln -sfv "$DIR/.globalignore" ~
 
 # Clone Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
