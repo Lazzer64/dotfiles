@@ -1,25 +1,48 @@
-set nocompatible
-filetype off
-
-if has('win32')
-
-    set rtp+=~/.vim
-    behave mswin
-    
-    " Macros taken from mswin.vim
-    vnoremap <BS> d
-    map <C-V> "+gp
-    cmap <C-V> <C-R>+
-    noremap <C-Q> <C-V>
-
+" Startup
+if has('vim_starting') && has("win32")
+        set rtp+=~/.vim
 endif
 
+" Options
+set nocompatible
+filetype off
 set nobackup
 
-" Vundle
+set ch=2 
+set laststatus=2 " always show statusline
+set wildmenu
+set number
+set relativenumber 
+
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+set expandtab
+set smarttab
+set shiftwidth=4
+set tabstop=4
+
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+" Colors
+colorscheme jellybeans
+let g:jellybeans_overrides = { 'Todo': { 'guifg': 'E5789F' } }
+
+if !exists("syntax_on")
+    syntax on
+endif
+
+if(&t_Co > 8)
+    set cursorline
+endif
+
+" Plugins
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" Plugins
+
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -52,67 +75,35 @@ let g:gundo_preview_height=25
 let g:gundo_close_on_revert=1
 
 " Lightline
-set laststatus=2 " always show statusline
 let g:lightline = { 'colorscheme': 'jellybeans' }
  
-" Macros
+" Macros"
 inoremap <C-K> <esc>O<esc>i
 inoremap <C-J> <esc>o<esc>i
+vnoremap <C-A> <esc>ggVG
 nnoremap <C-K> O<esc>
 nnoremap <C-J> o<esc>
 nnoremap K k J
-vnoremap <C-A> <esc>ggVG
 nnoremap z<CR> zt3<C-Y>
 nnoremap Y y$
 nnoremap <silent> <esc>/ :noh <CR>
 nnoremap <silent> <leader>e :NERDTreeToggle %:p:h<CR>
-
-" Make command line two lines high
-set ch=2
-
-" Syntax highlighting
-if !exists("syntax_on")
-    syntax on
-endif
+nnoremap <C-Q> <C-V>
  
-" Colors
-colorscheme jellybeans
-
-let g:jellybeans_overrides = { 'Todo': { 'guifg': 'E5789F' } }
-
-if(&t_Co > 8)
-    set cursorline
+" Windows options
+if has('win32') 
+    vnoremap <BS> d
+    map <C-V> "+gp
+    cmap <C-V> <C-R>+
 endif
- 
+
 " Gui options
 if has("gui_running")
-    set mousehide " Hide mouse when typing
+    set mousehide
+    set cursorline
     set guioptions-=a " Disable autoselect
     set guioptions-=L " Remove left scroll bar
     set guioptions-=T " Remove toolbar
     set guioptions-=m " Remove menubar
-    set guifont=Consolas:h10 " Font
+    set guifont=Consolas:h10
 endif
-
-" Turn on the WiLd menu
-set wildmenu
-
-" Use Relative line numebrs
-set number
-set relativenumber 
-
-" Configure backspace so it acts as it should act
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
- 
-" Tab options
-set expandtab
-set smarttab
-set shiftwidth=4
-set tabstop=4
-
-" Search options
-set ignorecase
-set smartcase
-set incsearch
-set hlsearch
