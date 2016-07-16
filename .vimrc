@@ -1,6 +1,6 @@
 " Startup
 if has('vim_starting') && has("win32")
-        set rtp+=~/.vim
+    set rtp+=~/.vim
 endif
 
 " Options
@@ -76,6 +76,9 @@ let g:gundo_close_on_revert=1
 
 " Lightline
 let g:lightline = { 'colorscheme': 'jellybeans' }
+
+" Auto Commands
+autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
  
 " Macros"
 inoremap <C-K> <esc>O<esc>i
