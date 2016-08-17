@@ -1,0 +1,55 @@
+#!/bin/bash
+# Get directory of the script
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+function install_vim {
+    ln -sfv "$DIR/.vim" ~
+    ln -sfv "$DIR/.vimrc" ~
+    if [[ -d ~/.vim/bundle/Vundle.vim ]]; then
+        echo "Vundle already installed"
+    else
+        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    fi
+}
+
+function install_git {
+    ln -sfv "$DIR/.gitconfig" ~
+    ln -sfv "$DIR/.globalignore" ~
+}
+
+if [[ -z $1 ]]; then
+    echo "Install which files?:"
+    echo " * all"
+    echo " * vim"
+    echo " * git"
+    echo -n "Install: "
+    read input
+    IFS=' ' read -r -a array <<< "$input"
+    choices="${array[@]}"
+else
+    choices=$@
+fi
+
+function install {
+    echo "installing ${1}..."
+    case $1 in
+        all)
+            install_vim
+            install_git
+            ;;
+        vim)
+            install_vim
+            ;;
+        git)
+            install_git
+            ;;
+        *)
+            echo "failed to install $1"
+    esac
+}
+
+for i in $choices ; do
+    install $i
+done
+
+exit 0
