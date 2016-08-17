@@ -1,7 +1,7 @@
 # dotfiles
-Install with:
+Install all with:
 ```bash
 git clone https://github.com/Lazzer64/dotfiles.git ~/dotfiles
-cd dotfiles
-./install.sh
+cd ~/dotfiles
+./install all
 ```
