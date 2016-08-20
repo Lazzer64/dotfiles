@@ -3,6 +3,7 @@
     email = ajpele@gmail.com
 [core]
     excludesfile = ~/.globalignore
+    editor = /usr/bin/vim
 [push]
     default = simple
 [color]
