@@ -17,11 +17,17 @@ function install_git {
     ln -sfv "$DIR/.globalignore" ~
 }
 
+function install_bash {
+    ln -sfv "$DIR/.bashrc" ~
+    ln -sfv "$DIR/.bash_aliases" ~
+}
+
 if [[ -z $1 ]]; then
     echo "Install which files?:"
     echo " * all"
     echo " * vim"
     echo " * git"
+    echo " * bash"
     echo -n "Install: "
     read input
     IFS=' ' read -r -a array <<< "$input"
@@ -42,6 +48,9 @@ function install {
             ;;
         git)
             install_git
+            ;;
+        bash)
+            install_bash
             ;;
         *)
             echo "failed to install $1"
