@@ -42,6 +42,7 @@ function install {
         all)
             install_vim
             install_git
+            install_bash
             ;;
         vim)
             install_vim
