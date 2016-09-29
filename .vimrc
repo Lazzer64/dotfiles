@@ -104,9 +104,6 @@ endif
 if has("gui_running")
     set mousehide
     set cursorline
-    set guioptions-=a " Disable autoselect
-    set guioptions-=L " Remove left scroll bar
-    set guioptions-=T " Remove toolbar
-    set guioptions-=m " Remove menubar
+    set guioptions=
     set guifont=Consolas:h10
 endif
