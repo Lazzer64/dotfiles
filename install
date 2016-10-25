@@ -1,65 +1,36 @@
 #!/bin/bash
+
 # Get directory of the script
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+INSTALLERSDIR=$DIR/installers
+INSTALLERS=$(find $INSTALLERSDIR/* -type f | sed "s|$INSTALLERSDIR/||") # Regex uses | so we can use paths without escaping them
 
-function install_vim {
-    ln -sfv "$DIR/.vim" ~
-    ln -sfv "$DIR/.vimrc" ~
-    if [[ -d ~/.vim/bundle/Vundle.vim ]]; then
-        echo "Vundle already installed"
-    else
-        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    fi
-}
-
-function install_git {
-    ln -sfv "$DIR/.gitconfig" ~
-    ln -sfv "$DIR/.globalignore" ~
-}
-
-function install_bash {
-    ln -sfv "$DIR/.bashrc" ~
-    ln -sfv "$DIR/.bash_aliases" ~
-}
-
+# Prompt user for selection if none were passed
 if [[ -z $1 ]]; then
-    echo "Install which files?:"
-    echo " * all"
-    echo " * vim"
-    echo " * git"
-    echo " * bash"
+    echo "Install which files?"
+    for file in  $INSTALLERS ; do
+        echo ' *' $file
+    done
     echo -n "Install: "
     read input
-    IFS=' ' read -r -a array <<< "$input"
-    choices="${array[@]}"
+    choices=$input
 else
     choices=$@
 fi
 
-function install {
-    echo "installing ${1}..."
-    case $1 in
-        all)
-            install_vim
-            install_git
-            install_bash
-            ;;
-        vim)
-            install_vim
-            ;;
-        git)
-            install_git
-            ;;
-        bash)
-            install_bash
-            ;;
-        *)
-            echo "failed to install $1"
-    esac
-}
+if [[ $choices == 'all' ]]; then
+    choices=$INSTALLERS
+fi
 
-for i in $choices ; do
-    install $i
+# Run installers if they exist in the directory of this script
+pushd $DIR > /dev/null
+for choice in $choices ; do
+    installer=$INSTALLERSDIR/$choice
+    if [[ -x $installer ]]; then
+        echo "Installing \"$choice\"..."
+        $installer
+    else
+        echo "Failed to install \"$choice\""
+    fi
 done
-
-exit 0
+popd > /dev/null
