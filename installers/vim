@@ -1,6 +1,6 @@
 #!/bin/bash
-ln -sfv "$DIR/.vim" ~
-ln -sfv "$DIR/.vimrc" ~
+ln -sfv ${PWD}/.vim ~
+ln -sfv ${PWD}/.vimrc ~
 if [[ -d ~/.vim/bundle/Vundle.vim ]]; then
     echo "Vundle already installed"
 else

@@ -22,7 +22,7 @@ if [[ $choices == 'all' ]]; then
     choices=$INSTALLERS
 fi
 
-# Run installers if they exist in the directory of this script
+# Run installers, if they exist, in the directory of this script
 pushd $DIR > /dev/null
 for choice in $choices ; do
     installer=$INSTALLERSDIR/$choice
