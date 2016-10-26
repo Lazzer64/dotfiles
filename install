@@ -5,6 +5,16 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 INSTALLERSDIR=$DIR/installers
 INSTALLERS=$(find $INSTALLERSDIR/* -type f | sed "s|$INSTALLERSDIR/||") # Regex uses | so we can use paths without escaping them
 
+while getopts 'v' opt
+do
+    case $opt in
+        v)
+            verbose=true
+            echo 'Printing verbosely!'
+            shift 
+    esac
+done
+
 # Prompt user for selection if none were passed
 if [[ -z $1 ]]; then
     echo "Install which files?"
@@ -28,7 +38,11 @@ for choice in $choices ; do
     installer=$INSTALLERSDIR/$choice
     if [[ -x $installer ]]; then
         echo "Installing \"$choice\"..."
-        $installer
+        if [[ $verbose ]]; then
+            $installer
+        else
+            $intaller > /dev/null
+        fi
     else
         echo "Failed to install \"$choice\""
     fi
