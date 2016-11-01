@@ -51,6 +51,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
 Plugin 'itchyny/lightline.vim'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'junegunn/vim-easy-align'
 
 if has("python")
     Plugin 'SirVer/ultisnips'
