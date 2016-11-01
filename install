@@ -41,7 +41,7 @@ for choice in $choices ; do
         if [[ $verbose ]]; then
             $installer
         else
-            $intaller > /dev/null
+            $installer > /dev/null
         fi
     else
         echo "Failed to install \"$choice\""
