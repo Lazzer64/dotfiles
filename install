@@ -37,7 +37,7 @@ pushd $DIR > /dev/null
 for choice in $choices ; do
     installer=$INSTALLERSDIR/$choice
     if [[ -x $installer ]]; then
-        echo "Installing \"$choice\"..."
+        echo "Installing $choice..."
         if [[ $verbose ]]; then
             $installer
         else

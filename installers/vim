@@ -4,5 +4,9 @@ ln -sfv ${PWD}/.vimrc ~
 if [[ -d ~/.vim/bundle/Vundle.vim ]]; then
     echo "Vundle already installed"
 else
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    echo "Cloning Vundle"
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 2>&1
 fi
+
+echo "Installing Vim Plugins"
+vim +PluginInstall +qall 2>&1
