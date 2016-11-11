@@ -1,6 +1,7 @@
 [ -z "$PS1" ] && return
 
 HISTCONTROL=ignoredups:ignorespace
+HISTIGNORE='fg'
 HISTSIZE=1000
 HISTFILESIZE=2000
 
