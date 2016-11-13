@@ -30,7 +30,12 @@ else
 fi
 
 function git_branch {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/\*\s//' -e 's/^/ (/' -e 's/$/)/'
+    branch=$(git branch 2> /dev/null | sed -n -e '/^[^*]/d' -e 's/\*\s//' -e 'P')
+    star=$(git status --porcelain 2> /dev/null | sed -e '/?/d' -e '2,$d' -e 's/.\+/\*/')
+
+    if [ -n "$branch" ]; then
+        echo -n " ($branch$star)"
+    fi
 }
 
 if [ "$color_prompt" = yes ]; then
