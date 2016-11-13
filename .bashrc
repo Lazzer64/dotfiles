@@ -30,11 +30,12 @@ else
 fi
 
 function git_branch {
-    branch=$(git branch 2> /dev/null | sed -n -e '/^[^*]/d' -e 's/\*\s//' -e 'P')
-    star=$(git status --porcelain 2> /dev/null | sed -e '/?/d' -e '2,$d' -e 's/.\+/\*/')
+    _branch=$(git branch 2> /dev/null | sed -n -e '/^[^*]/d' -e 's/\*\s//' -e 'P')
+    _star=$(git status --porcelain 2> /dev/null | grep -e '^.\S' | sed -e '/?/d' -e '2,$d' -e 's/.\+/\*/')
+    _plus=$(git status --porcelain 2> /dev/null | grep -e '^\S.' | sed -e '/?/d' -e '2,$d' -e 's/.\+/+/')
 
-    if [ -n "$branch" ]; then
-        echo -n " ($branch$star)"
+    if [ -n "$_branch" ]; then
+        echo -n " ($_branch$_plus$_star)"
     fi
 }
 
@@ -60,4 +61,3 @@ fi
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
-
