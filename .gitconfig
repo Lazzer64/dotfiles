@@ -12,3 +12,4 @@
     user = Lazzer64
 [alias]
     graph = log --graph --decorate --format=format:'%C(auto)%h %s %C(dim white)- %an (%ar) %C(auto)%d'
+    s = status -sb
