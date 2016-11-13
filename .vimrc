@@ -81,7 +81,7 @@ let g:lightline = { 'colorscheme': 'jellybeans' }
 " Auto Commands
 autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
  
-" Macros"
+" Macros
 inoremap <C-K> <esc>O<esc>i
 inoremap <C-J> <esc>o<esc>i
 vnoremap <C-A> <esc>ggVG
@@ -102,9 +102,13 @@ if has('win32')
 endif
 
 " Gui options
-if has("gui_running")
+if has('gui_running')
     set mousehide
     set cursorline
     set guioptions=
     set guifont=Consolas:h10
+endif
+
+if filereadable(expand('~/.vimrc.local'))
+    source ~/.vimrc.local
 endif
