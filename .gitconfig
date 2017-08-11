@@ -12,4 +12,8 @@
     user = Lazzer64
 [alias]
     graph = log --graph --decorate --format=format:'%C(auto)%h %s %C(dim white)- %an (%ar) %C(auto)%d'
+    branches = for-each-ref --sort=-committerdate refs/heads/ --format='%(color:green)%(HEAD) %(color:yellow)%(refname:short) %(color:reset)%(contents:subject) %(color:dim white)- %(authorname) (%(committerdate:relative))%(color:reset)'
+    todo = grep -i "todo"
+    staged = diff --staged
     s = status -sb
+    a = !git add $(git diff --name-only --relative)
