@@ -8,11 +8,11 @@ set nocompatible
 filetype off
 set nobackup
 
-set ch=2 
+set ch=2
 set laststatus=2 " always show statusline
 set wildmenu
 set number
-set relativenumber 
+set relativenumber
 
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
@@ -26,6 +26,7 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
+set showcmd
 
 " Colors
 colorscheme jellybeans
