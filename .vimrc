@@ -76,11 +76,24 @@ let g:gundo_preview_height=25
 let g:gundo_close_on_revert=1
 
 " Lightline
-let g:lightline = { 'colorscheme': 'jellybeans' }
+let g:lightline = {
+\ 'colorscheme': 'jellybeans',
+\ 'active': {
+\    'right': [ [ 'lineinfo' ],
+\               [ 'gitbranch'],
+\               [ 'fileformat', 'fileencoding', 'filetype' ] ]
+\   },
+\ 'inactive': {
+\    'right': [ [ 'lineinfo' ], [] ]
+\   },
+\ 'component_function': {
+\    'gitbranch': 'fugitive#head'
+\ },
+\ }
 
 " Auto Commands
 autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
- 
+
 " Macros
 inoremap <C-K> <esc>O<esc>i
 inoremap <C-J> <esc>o<esc>i
