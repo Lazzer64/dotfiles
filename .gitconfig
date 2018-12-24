@@ -11,9 +11,12 @@
 [github]
     user = Lazzer64
 [alias]
-    graph = log --graph --decorate --format=format:'%C(auto)%h %s %C(dim white)- %an (%ar) %C(auto)%d'
+    graph = log --graph --format=format:'%C(auto)%h %s %C(dim white)- %an (%ar)%C(reset)%C(auto)%d%C(reset)'
+    downstream = log --oneline --format=format:'%C(auto)%h %s %d %C(dim white)(%ar)%C(reset)' HEAD@{upstream}~1..HEAD
     branches = for-each-ref --sort=-committerdate refs/heads/ --format='%(color:green)%(HEAD) %(color:yellow)%(refname:short) %(color:reset)%(contents:subject) %(color:dim white)- %(authorname) (%(committerdate:relative))%(color:reset)'
-    todo = grep -i "todo"
+    todo = grep -Pin "todo.*|fixme.*"
     staged = diff --staged
     s = status -sb
     a = !git add $(git diff --name-only --relative)
+    d = diff --color-words --word-diff
+    c- = checkout -
