@@ -1,67 +1,60 @@
-" Startup
+" Windows RTP
 if has('vim_starting') && has("win32")
-    set rtp+=~/.vim
-endif
-
-" Options
-set nocompatible
-filetype off
-set nobackup
-
-set ch=2
-set laststatus=2 " always show statusline
-set wildmenu
-set number
-set relativenumber
-
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
-
-set expandtab
-set smarttab
-set shiftwidth=4
-set tabstop=4
-
-set ignorecase
-set smartcase
-set incsearch
-set hlsearch
-set showcmd
-
-" Colors
-colorscheme jellybeans
-let g:jellybeans_overrides = { 'Todo': { 'guifg': 'E5789F' } }
-
-if !exists("syntax_on")
-    syntax on
-endif
-
-if(&t_Co > 8)
-    set cursorline
+    set runtimepath+=~/.vim
 endif
 
 " Plugins
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin()
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'mbbill/undotree'
+Plug 'scrooloose/nerdtree'
+Plug 'sgur/vim-editorconfig'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'vim-python/python-syntax'
+call plug#end()
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-commentary'
-Plugin 'itchyny/lightline.vim'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'junegunn/vim-easy-align'
+" Options
+set backspace=eol,start,indent
+set ch=2
+set complete=.,w,b,u,t
+set expandtab
+set hlsearch
+set ignorecase
+set incsearch
+set laststatus=2
+set nobackup
+set nocompatible
+set number
+set relativenumber
+set shiftwidth=4
+set showcmd
+set smartcase
+set smarttab
+set tabstop=4
+set textwidth=0
+set whichwrap+=<,>,h,l
+set wildmenu
+noh
 
-if has("python")
-    Plugin 'SirVer/ultisnips'
-    Plugin 'honza/vim-snippets' " Utlisnips dependency
-    Plugin 'sjl/gundo.vim'
-endif
+" Colors
+let g:jellybeans_overrides = {'Search': {'guifg': '', 'guibg': '505050'}, 'Terminal': {'guibg': '000000'}}
+colorscheme jellybeans
 
-call vundle#end()
-filetype plugin indent on
+" Undotree
+let g:undotree_WindowLayout = 2
+
+" Markdown
+let g:markdown_fenced_languages = ['python', 'sh', 'c']
 
 " Multi Cursor options
 let g:multi_cursor_exit_from_insert_mode=0
@@ -71,21 +64,17 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-" Gundo options
-nnoremap <Leader>u :GundoToggle<CR>
-let g:gundo_preview_height=25
-let g:gundo_close_on_revert=1
+" Python-Syntax
+let python_highlight_all=1
 
 " Lightline
 let g:lightline = {
 \ 'colorscheme': 'jellybeans',
 \ 'active': {
-\    'right': [ [ 'lineinfo' ],
-\               [ 'gitbranch'],
-\               [ 'fileformat', 'fileencoding', 'filetype' ] ]
+\    'right': [['lineinfo'], ['gitbranch'], ['fileformat', 'filetype']]
 \   },
 \ 'inactive': {
-\    'right': [ [ 'lineinfo' ], [] ]
+\    'right': [['lineinfo']]
 \   },
 \ 'component_function': {
 \    'gitbranch': 'fugitive#head'
@@ -93,27 +82,25 @@ let g:lightline = {
 \ }
 
 " Auto Commands
-autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup vimrc
+    autocmd!
+    autocmd BufRead /tmp/bash-fc* set ft=sh
+augroup END
 
-" Macros
-inoremap <C-K> <esc>O<esc>i
-inoremap <C-J> <esc>o<esc>i
-vnoremap <C-A> <esc>ggVG
-nnoremap <C-K> O<esc>
-nnoremap <C-J> o<esc>
-nnoremap K k J
-nnoremap z<CR> zt3<C-Y>
-nnoremap Y y$
-nnoremap <silent> <esc>/ :noh <CR>
-nnoremap <silent> <leader>e :NERDTreeToggle %:p:h<CR>
-nnoremap <C-Q> <C-V>
- 
-" Windows options
-if has('win32') 
-    vnoremap <BS> d
-    map <C-V> "+gp
-    cmap <C-V> <C-R>+
-endif
+" Mappings
+inoremap <silent> <C-J> <esc>o<esc>i
+inoremap <silent> <C-K> <esc>O<esc>i
+
+nnoremap <silent> <C-J> o<esc>
+nnoremap <silent> <C-K> O<esc>
+nnoremap <silent> <C-P> :Files<CR>
+nnoremap <silent> <C-Q> <C-V>
+nnoremap <silent> <esc>/ :noh<CR>
+nnoremap <silent> <expr> <leader>e expand('%') =~ 'NERD_tree' ? ':NERDTreeClose<CR>' : ':NERDTree %:p:h<CR>'
+nnoremap <silent> <leader>u :UndotreeToggle<CR>
+nnoremap <silent> <leader>wr :set wrap! \| set wrap?<CR>
+nnoremap <silent> Y y$
+nnoremap <silent> z<CR> zt3<C-Y>
 
 " Gui options
 if has('gui_running')

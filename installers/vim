@@ -1,12 +1,14 @@
 #!/bin/bash
 ln -sfv ${PWD}/.vim ~
 ln -sfv ${PWD}/.vimrc ~
-if [[ -d ~/.vim/bundle/Vundle.vim ]]; then
-    echo "Vundle already installed"
+
+if [[ -d ~/.vim/autoload/Vundle.vim ]]; then
+    echo "Plug already installed"
 else
-    echo "Cloning Vundle"
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 2>&1
+    echo "Cloning Plug"
+    curl -so ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-echo "Installing Vim Plugins"
-vim +PluginInstall +qall 2>&1
+echo "Installing Vim plugins..."
+vim +PlugInstall +qall 2>&1
