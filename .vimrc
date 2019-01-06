@@ -70,15 +70,9 @@ let python_highlight_all=1
 " Lightline
 let g:lightline = {
 \ 'colorscheme': 'jellybeans',
-\ 'active': {
-\    'right': [['lineinfo'], ['gitbranch'], ['fileformat', 'filetype']]
-\   },
-\ 'inactive': {
-\    'right': [['lineinfo']]
-\   },
-\ 'component_function': {
-\    'gitbranch': 'fugitive#head'
-\ },
+\ 'active': { 'right': [['lineinfo'], ['gitbranch'], ['fileformat', 'filetype']] },
+\ 'inactive': { 'right': [['lineinfo']] },
+\ 'component_function': { 'gitbranch': 'fugitive#head' },
 \ }
 
 " Auto Commands
@@ -101,6 +95,9 @@ nnoremap <silent> <leader>u :UndotreeToggle<CR>
 nnoremap <silent> <leader>wr :set wrap! \| set wrap?<CR>
 nnoremap <silent> Y y$
 nnoremap <silent> z<CR> zt3<C-Y>
+
+vnoremap <silent> . :normal .<CR>
+vnoremap <silent> <expr> @ ':normal @'.nr2char(getchar()).'<CR>'
 
 " Gui options
 if has('gui_running')
